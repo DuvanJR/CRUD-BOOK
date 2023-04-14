@@ -1,0 +1,27 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: book
+  profiles:
+    active: local
+
+---
+spring:
+  profile: local
+  datasource:
+    url: jdbc:mysql://localhost:3306/postgres
+    username: root
+    password: 1234
+    test-on-borrow: true
+    validation-query: SELECT 1 FROM dual
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+  jpa:
+    show-sql: true
+    hibernate:
+      format-sql: true
+      ddl-auto: none
